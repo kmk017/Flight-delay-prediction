@@ -1,0 +1,109 @@
+.pred-form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.pred-form__section {
+  padding-left: 16px;
+  border-left: 2px solid var(--amber-dim);
+}
+
+.pred-form__section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.pred-form__grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pred-form__grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pred-form__grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pred-form__grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pred-form__submit {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--amber);
+  color: #191305;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  padding: 15px 20px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+  box-shadow: 0 0 0 0 var(--amber-glow);
+}
+
+.pred-form__submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px -6px rgba(255, 182, 39, 0.45);
+}
+
+.pred-form__submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pred-form__submit:disabled {
+  background: var(--panel-alt);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.pred-form__spinner {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid rgba(138, 147, 178, 0.4);
+  border-top-color: var(--text-muted);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .pred-form__grid--3,
+  .pred-form__grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .pred-form__grid--2,
+  .pred-form__grid--3,
+  .pred-form__grid--4 {
+    grid-template-columns: 1fr;
+  }
+  .pred-form__section {
+    padding-left: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pred-form__spinner {
+    animation: none;
+  }
+}

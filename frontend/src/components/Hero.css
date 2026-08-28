@@ -1,0 +1,108 @@
+.hero {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 64px 24px 40px;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  margin-bottom: 18px;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.hero__title-accent {
+  color: var(--amber);
+}
+
+.hero__subtitle {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 520px;
+}
+
+/* --- Radar sweep signature element --- */
+.hero__radar {
+  position: absolute;
+  top: -120px;
+  right: -140px;
+  width: 480px;
+  height: 480px;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.hero__radar-rings {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0,
+      transparent 54px,
+      var(--border-soft) 55px,
+      var(--border-soft) 56px
+    );
+}
+
+.hero__radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--green-glow) 0deg,
+    transparent 60deg,
+    transparent 360deg
+  );
+  animation: radar-spin 6s linear infinite;
+}
+
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 48px 20px 28px;
+  }
+  .hero__radar {
+    width: 320px;
+    height: 320px;
+    top: -90px;
+    right: -110px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__radar-sweep {
+    animation: none;
+    opacity: 0.4;
+  }
+}

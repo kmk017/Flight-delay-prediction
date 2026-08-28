@@ -1,0 +1,10 @@
+Classification Report — Decision Tree
+==================================================
+              precision    recall  f1-score   support
+
+     On-time       0.69      0.84      0.76      2595
+     Delayed       0.51      0.32      0.39      1405
+
+    accuracy                           0.65      4000
+   macro avg       0.60      0.58      0.58      4000
+weighted avg       0.63      0.65      0.63      4000

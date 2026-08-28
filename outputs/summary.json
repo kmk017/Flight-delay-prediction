@@ -1,0 +1,53 @@
+{
+  "n_samples": 20000,
+  "delay_rate": 0.35135,
+  "best_model_by_f1": "Logistic Regression",
+  "results": [
+    {
+      "Model": "Logistic Regression",
+      "Accuracy": 0.65625,
+      "Precision": 0.5084269662921348,
+      "Recall": 0.6441281138790036,
+      "F1-Score": 0.5682888540031397,
+      "ROC-AUC": 0.7074683726575195
+    },
+    {
+      "Model": "Random Forest",
+      "Accuracy": 0.6555,
+      "Precision": 0.5078717201166181,
+      "Recall": 0.6199288256227758,
+      "F1-Score": 0.5583333333333333,
+      "ROC-AUC": 0.6960862320778392
+    },
+    {
+      "Model": "Decision Tree",
+      "Accuracy": 0.6545,
+      "Precision": 0.5132947976878612,
+      "Recall": 0.31601423487544483,
+      "F1-Score": 0.39118942731277534,
+      "ROC-AUC": 0.6474796179348459
+    }
+  ],
+  "top_5_features": [
+    {
+      "Feature": "wind_speed_mph",
+      "Importance": 0.1973119339275076
+    },
+    {
+      "Feature": "visibility_miles",
+      "Importance": 0.11509897170683993
+    },
+    {
+      "Feature": "distance",
+      "Importance": 0.09447951724418983
+    },
+    {
+      "Feature": "precipitation_in",
+      "Importance": 0.08729777607402626
+    },
+    {
+      "Feature": "is_peak_hour",
+      "Importance": 0.08530082169002985
+    }
+  ]
+}

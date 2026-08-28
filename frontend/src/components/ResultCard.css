@@ -1,0 +1,231 @@
+.result-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Idle state --- */
+.result-card__idle {
+  text-align: center;
+  color: var(--text-faint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 260px;
+}
+
+.result-card__idle-glyph {
+  font-size: 28px;
+  color: var(--text-muted);
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+.result-card__idle p {
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* --- Loading state --- */
+.result-card__loading {
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.result-card__bars {
+  display: flex;
+  gap: 5px;
+  height: 28px;
+  align-items: flex-end;
+}
+
+.result-card__bars span {
+  width: 6px;
+  background: var(--amber);
+  border-radius: 2px;
+  animation: bar-bounce 1s ease-in-out infinite;
+}
+
+.result-card__bars span:nth-child(1) {
+  height: 40%;
+  animation-delay: 0s;
+}
+.result-card__bars span:nth-child(2) {
+  height: 100%;
+  animation-delay: 0.12s;
+}
+.result-card__bars span:nth-child(3) {
+  height: 65%;
+  animation-delay: 0.24s;
+}
+.result-card__bars span:nth-child(4) {
+  height: 85%;
+  animation-delay: 0.36s;
+}
+
+@keyframes bar-bounce {
+  0%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.result-card__loading p {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+/* --- Error state --- */
+.result-card__error {
+  text-align: center;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-card__error-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--red);
+}
+
+.result-card__error p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --- Success state: split-flap board --- */
+.result-card__board {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  animation: flap-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform-origin: top center;
+}
+
+@keyframes flap-in {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: rotateX(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.result-card__flap,
+.result-card__probability {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 20px;
+}
+
+.result-card__divider {
+  width: 1px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.result-card__flap-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+}
+
+.result-card__flap-value {
+  font-family: var(--font-mono);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.is-ontime .result-card__flap-value {
+  color: var(--green);
+}
+
+.is-delayed .result-card__flap-value {
+  color: var(--red);
+}
+
+.result-card__probability-value {
+  font-family: var(--font-mono);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.result-card__percent {
+  font-size: 0.55em;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.result-card__track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--panel-alt);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.result-card__fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.2s linear;
+}
+
+.is-delayed .result-card__fill {
+  background: var(--red);
+}
+
+.is-ontime .result-card__fill {
+  background: var(--green);
+}
+
+@media (max-width: 560px) {
+  .result-card__board {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .result-card__divider {
+    width: auto;
+    height: 1px;
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .result-card__board {
+    animation: none;
+  }
+  .result-card__bars span {
+    animation: none;
+  }
+}

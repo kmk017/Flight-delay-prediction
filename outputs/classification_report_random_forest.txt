@@ -1,0 +1,10 @@
+Classification Report — Random Forest
+==================================================
+              precision    recall  f1-score   support
+
+     On-time       0.77      0.67      0.72      2595
+     Delayed       0.51      0.62      0.56      1405
+
+    accuracy                           0.66      4000
+   macro avg       0.64      0.65      0.64      4000
+weighted avg       0.68      0.66      0.66      4000
