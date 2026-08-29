@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:5000/predict'
+const API_URL = 'https://flight-delay-prediction-o1to.onrender.com/predict'
 
 /**
  * Sends flight + weather details to the Flask backend and returns the
